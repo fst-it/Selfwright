@@ -1,0 +1,17 @@
+{
+  "name": "selfwright",
+  "metadata": {
+    "description": "Deterministic career-engine skills: job-source scanning, score, tailor, ATS-check, co-piloted cover/research, and inbox triage against your own truth-layer data vault"
+  },
+  "owner": {
+    "name": "Felipe Tavares"
+  },
+  "plugins": [
+    {
+      "name": "selfwright",
+      "source": "./",
+      "description": "Deterministic career-engine skills: job-source scanning, score, tailor, ATS-check, co-piloted cover/research, and inbox triage",
+      "category": "productivity"
+    }
+  ]
+}

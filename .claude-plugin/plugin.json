@@ -1,0 +1,8 @@
+{
+  "name": "selfwright",
+  "version": "0.1.0",
+  "description": "Deterministic career-engine skills: job-source scanning, score, tailor, ATS-check, co-piloted cover/research, and inbox triage against your own truth-layer data vault (SELFWRIGHT_DATA_DIR)",
+  "author": {
+    "name": "Felipe Tavares"
+  }
+}

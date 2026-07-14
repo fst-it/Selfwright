@@ -1,0 +1,22 @@
+# Logical role → Claude-model hint map (not a LiteLLM proxy routing table — formalized in ADR 0006).
+# Consumed by the optional ClaudeCliAdapter (packages/adapters/llm-claude-cli) and by
+# skills/docs for model selection. Loaded via @selfwright/shared-config's loadModelsConfig().
+# The default co-piloted generation path never reads this file — it has no gateway to route through.
+default: claude/haiku
+roles:
+  triage: claude/haiku
+  score: claude/sonnet
+  tailor: claude/sonnet
+  cover-final: claude/opus
+  judge: claude/sonnet
+  research: claude/sonnet
+  coaching-drill: claude/haiku
+  coaching-prep-pack: claude/haiku
+  content-topics: claude/haiku
+
+# Local Ollama models (D13 — eval-gated for generation; embeddings always safe).
+# Enable after running `pnpm eval` and confirming both checks pass.
+# ollama:
+#   embed: nomic-embed-text   # 768d, MIT — unconditional for pgvector (T2.7)
+#   extract: llama3.2:3b      # gated: eval extraction check >= 0.6 Jaccard
+#   classify: llama3.2:3b     # gated: eval classification check >= 0.85 accuracy

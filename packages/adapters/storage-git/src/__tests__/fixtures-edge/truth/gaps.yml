@@ -1,0 +1,3 @@
+# Valid YAML structure, invalid schema (missing required fields, id fails pattern)
+- id: gap-lowercase-fails-pattern
+  title: Bad entry

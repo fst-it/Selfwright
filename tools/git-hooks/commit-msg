@@ -1,0 +1,44 @@
+#!/usr/bin/env sh
+# Selfwright commit-msg gate — tool-agnostic coverage.
+#
+# Enforces the conventional-commit format AND the PII/confidential-name check
+# on every local commit message. The commit message file path is passed as
+# $1 by git.
+#
+# If lefthook is available, defer to it; it runs the full suite
+# (PII check + conventional-commit lint) as defined in lefthook.yml.
+#
+# Otherwise run both checks directly (same set as lefthook.yml's `commit-msg`
+# group) — the PII check is a pre-existing hard-block (ADR 0017) and must not
+# be silently dropped just because this tool-agnostic fallback path also
+# gained a new check (G13; docs/fitness-functions.md).
+#
+# Installed automatically by `pnpm prepare` via tools/src/hooks/setup-hooks.ts.
+# Lefthook will overwrite this file when `lefthook install` runs; that is
+# intentional — lefthook's shim is what runs our lefthook.yml commands.
+
+set -e
+
+if command -v lefthook >/dev/null 2>&1; then
+  exec lefthook run commit-msg "$@"
+fi
+
+# Fallback: PII check + conventional-commit lint via pnpm (always available in
+# this monorepo). `set -e` means the first failing command aborts the script
+# with its exit code, so a PII hit blocks the commit before the lint even runs.
+if command -v pnpm >/dev/null 2>&1; then
+  pnpm --filter @selfwright/tools run check-text-for-pii "$1" "commit message"
+  pnpm --filter @selfwright/tools run commit-msg-lint "$1"
+  exit $?
+fi
+
+# Last resort: tsx if pnpm is absent (unlikely in a pnpm workspace).
+if command -v tsx >/dev/null 2>&1; then
+  tsx tools/src/check-text-for-pii.ts "$1" "commit message"
+  tsx tools/src/hooks/commit-msg-lint.ts "$1"
+  exit $?
+fi
+
+echo "[commit-msg] WARNING: neither lefthook, pnpm, nor tsx found." >&2
+echo "[commit-msg] PII check / conventional-commit lint was NOT run — install pnpm or lefthook." >&2
+exit 0

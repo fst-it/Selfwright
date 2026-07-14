@@ -1,0 +1,17 @@
+# Skill gaps — start empty. Add entries as you identify gaps through gap-scan
+# and debrief analysis. Format follows the GAP-* id convention.
+#
+# Example entry:
+# - id: GAP-CLOUD-INFRA
+#   title: Limited cloud infrastructure hands-on depth
+#   honest_gap: >
+#     Most platform experience is ETL and data pipelines; Kubernetes and cloud
+#     networking at the ops level are thinner than the data layer.
+#   frame: >
+#     Strong vendor-neutral data architecture experience; ramp time for deep
+#     cloud ops tooling is predictable.
+#   tag: soft
+#   evidence_ids:
+#     - EVD-TEMPLATE-PLATFORM
+#   company_specific: false
+[]

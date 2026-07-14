@@ -1,0 +1,42 @@
+# Template evidence registry — 3 synthetic entries illustrating the main tag variants.
+# Replace with your own evidence. IDs follow the EVD-XXXXXX convention.
+# All claims must be verifiable from your own work history.
+
+- id: EVD-TEMPLATE-PLATFORM
+  org: FictionalCo A
+  claim: Designed and delivered a cloud-native data platform serving 150 internal analysts.
+  detail: >
+    Migrated a fragile on-premises ETL stack to a lakehouse architecture.
+    Led a 6-person team; delivered in 10 months under the approved budget.
+  tag: hard
+  metric: "35% reduction in pipeline failures in the first quarter after launch"
+  keywords:
+    - data platform
+    - lakehouse
+    - ETL
+    - cloud migration
+
+- id: EVD-TEMPLATE-LEADERSHIP
+  org: FictionalCo A
+  claim: Grew the data engineering team from 3 to 8 engineers over 18 months.
+  tag:
+    direct: hard
+    functional: soft
+  keywords:
+    - leadership
+    - team growth
+    - hiring
+    - engineering management
+
+- id: EVD-TEMPLATE-DELIVERY
+  org: FictionalCo B
+  claim: Delivered a real-time stream-processing pipeline handling 50,000 events per second.
+  tag:
+    build: hard
+    metrics: hard
+  metric: "99.9% uptime over 24 months in production"
+  keywords:
+    - stream processing
+    - Kafka
+    - real-time
+    - data engineering

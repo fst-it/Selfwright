@@ -1,0 +1,42 @@
+# Private data — NEVER commit (lives in fst-it/Selfwright-data + local only)
+data/
+
+# Secrets / environment
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets/
+web/credentials.json
+
+# Node / TypeScript
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+.turbo/
+coverage/
+.vitest/
+
+# Python (agents service, later)
+.venv/
+__pycache__/
+*.pyc
+.uv/
+
+# Local docker-compose overrides (e.g. port remaps for host port conflicts)
+infra/docker-compose.override.yml
+
+# Generated reports / scratch
+reports/
+*.tmp
+*.scratch
+*.local.*
+.confidential-names.local
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

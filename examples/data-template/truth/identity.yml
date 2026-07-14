@@ -1,0 +1,63 @@
+name: Jordan Doe
+canonical_title: Principal Data Platform Architect
+years_experience: 12
+headline: >
+  Data platform architect with 12 years building cloud-native analytics
+  infrastructure at scale across financial services and SaaS companies.
+seniority_equivalence: Senior Staff / Principal
+headline_policy: Foreground data platform ownership and cross-team architecture leadership.
+
+also_known_as_titles:
+  - Data Architect
+  - Platform Architect
+  - Solutions Architect
+
+cv_generation_rules:
+  - Use impact-first bullet structure (STAR-lite).
+  - Quantify outcomes where evidence exists; avoid unsupported superlatives.
+  - Never claim sole ownership of ML systems in production without qualification.
+
+education:
+  - degree: MSc Computer Science
+    school: University of Fictional City
+    show_year: false
+
+contact:
+  location: Amsterdam, NL
+  phone: "555-0100" # replace with your real number (stored only in your private data repo)
+  email: jordan.doe@localhost # replace with your real email (stored only in your private data repo)
+  linkedin: https://www.linkedin.com/in/YOUR-HANDLE/
+
+citizenship: EU
+relocation:
+  - Remote
+  - Amsterdam
+
+languages:
+  English: fluent
+  Dutch: basic
+
+certifications:
+  - AWS Certified Solutions Architect – Associate
+
+team_sizes:
+  fictionalco_a:
+    direct: "4-8"
+    functional: "40+"
+    print_direct_on_cv: false
+
+roles_timeline:
+  - company: FictionalCo A
+    title: Principal Data Architect
+    period: 2021–present
+  - company: FictionalCo B
+    title: Senior Data Engineer
+    period: 2018–2021
+
+honesty_boundaries:
+  - Do not claim sole ownership of production ML systems without qualification.
+  - Do not claim executive P&L responsibility; frame as influence and analytical output.
+
+calibration: >
+  Comfortable framing seniority honestly; 12 years of data platform depth
+  but recent titles have been IC rather than VP/Director.

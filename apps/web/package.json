@@ -1,0 +1,29 @@
+{
+  "name": "@selfwright/web",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --coverage",
+    "start": "node dist/server.js",
+    "hash-password": "node dist/hash-password.js"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.14",
+    "@selfwright/adapter-storage-git": "workspace:*",
+    "@selfwright/api-contract": "workspace:*",
+    "@selfwright/core": "workspace:*",
+    "@selfwright/shared-config": "workspace:*",
+    "@selfwright/shared-logger": "workspace:*",
+    "@selfwright/web-ui": "workspace:*",
+    "hono": "^4.12.27",
+    "yaml": "^2.0.0",
+    "zod": "^3.0.0"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^3.0.0",
+    "vitest": "^3.0.0"
+  }
+}

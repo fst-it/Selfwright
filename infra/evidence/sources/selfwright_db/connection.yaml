@@ -1,0 +1,11 @@
+# PostgreSQL connection — Selfwright projection database (rebuildable; ADR 0009).
+# Reads the applications, fitness_runs, evidence, and archetypes tables.
+#
+# This source reads from the 'selfwright' database only (NOT the 'metabase' database).
+# Connection credentials come from environment variables — see .env.example.
+#
+# NOTE: Evidence.dev may read these values from the EVIDENCE_SOURCE__selfwright_db__*
+# env vars or from a GUI-configured secret store. Verify the exact mechanism against
+# the Evidence docs for the installed version.
+name: selfwright_db
+type: postgres

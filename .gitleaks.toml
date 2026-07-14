@@ -1,0 +1,25 @@
+title = "Selfwright — gitleaks configuration"
+
+[extend]
+useDefault = true
+
+# Additional rules for Selfwright-specific secrets
+[[rules]]
+id = "selfwright-litellm-key"
+description = "LiteLLM master key or API key in framework files"
+regex = '''(?i)(LITELLM_MASTER_KEY|LITELLM_API_KEY)\s*[=:]\s*['"a-zA-Z0-9/+_\-]{10,}'''
+tags = ["key", "litellm", "selfwright"]
+
+[[rules]]
+id = "selfwright-anthropic-key"
+description = "Anthropic API key committed to framework"
+regex = '''sk-ant-[a-zA-Z0-9\-_]{32,}'''
+tags = ["key", "anthropic", "selfwright"]
+
+[allowlist]
+description = "False-positive suppressions"
+regexes = [
+  # Example/placeholder keys in documentation
+  '''sk-ant-REPLACE_ME''',
+  '''your[-_]api[-_]key''',
+]

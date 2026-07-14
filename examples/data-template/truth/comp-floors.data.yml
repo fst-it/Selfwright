@@ -1,0 +1,29 @@
+# Compensation floors by location — used by the scoring engine for comp_floor comparisons.
+# Replace with real figures from your market research.
+# This file is optional: score/gap-scan/inbox load it best-effort and degrade gracefully
+# if absent.
+
+meta:
+  source: manual research
+  generated: "2026-01-01"
+  amsterdam_discretionary_baseline_eur: 120000
+  review_cadence: quarterly
+  location_tiers: "A (premium) / B (target) / C (secondary)"
+  note: Template placeholder — replace with real market data before relying on comp scoring.
+
+cities:
+  - city: Amsterdam
+    country: Netherlands
+    location_tier_points: 100
+    col_index: 1.0
+    floor_a_eur: 120000
+    floor_b_eur: 100000
+    search: true
+    note: Primary target market.
+
+  - city: London
+    country: UK
+    location_tier_points: 95
+    col_index: 1.1
+    floor_a_eur: 135000
+    search: true

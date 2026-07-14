@@ -1,0 +1,10 @@
+# Fixture gap entries — sanitized.
+
+- id: GAP-CLOUD-INFRA
+  title: Limited cloud infrastructure hands-on
+  honest_gap: Most recent platform experience is ETL and data pipelines, not Kubernetes or cloud networking.
+  frame: Strong vendor-neutral data architecture experience; ramp time for deep cloud ops tooling is predictable.
+  tag: soft
+  evidence_ids:
+    - EVD-FIXTURE-PLATFORM
+  company_specific: false

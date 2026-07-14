@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+/* Visible focus ring for keyboard navigation everywhere, not just on ring-*
+   utility classes explicitly opted into — a11y pass requirement. */
+:focus-visible {
+  outline: 2px solid #4c5fe8;
+  outline-offset: 2px;
+}
+
+/* Table density (settings.yml dashboard.table_density). The data-density
+   attribute is set on the wrapper div around the table Card by QueuePage
+   and PipelinePage via useTableDensity(). */
+[data-density="compact"] td {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}

@@ -1,0 +1,54 @@
+{
+  "name": "@selfwright/core",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./ports/*": {
+      "import": "./dist/ports/*.js",
+      "types": "./dist/ports/*.d.ts"
+    },
+    "./shared/*": {
+      "import": "./dist/shared/*.js",
+      "types": "./dist/shared/*.d.ts"
+    },
+    "./truth/schemas": {
+      "import": "./dist/truth/schemas/index.js",
+      "types": "./dist/truth/schemas/index.d.ts"
+    },
+    "./truth/*": {
+      "import": "./dist/truth/*.js",
+      "types": "./dist/truth/*.d.ts"
+    },
+    "./tailoring": {
+      "import": "./dist/tailoring/index.js",
+      "types": "./dist/tailoring/index.d.ts"
+    },
+    "./services": {
+      "import": "./dist/services/index.js",
+      "types": "./dist/services/index.d.ts"
+    },
+    "./ports/render": {
+      "import": "./dist/ports/render.js",
+      "types": "./dist/ports/render.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --coverage"
+  },
+  "dependencies": {
+    "zod": "^3.0.0"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^3.0.0",
+    "vitest": "^3.0.0"
+  }
+}

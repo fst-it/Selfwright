@@ -1,0 +1,54 @@
+company: Fixture Company
+company_slug: fixture-company
+drifts:
+  - id: DRIFT-FIXTURE-REFRAME
+    org: Company A
+    claim: Spearheaded cross-desk latency reduction strategy.
+    detail: >
+      Reframing data-platform position-management work as desk-level performance
+      advisory — not direct execution ownership.
+    deviates_from:
+      evidence_ids:
+        - EVD-FIXTURE-PLATFORM
+      kind: reframe
+      note: Candidate influenced analysis but did not own desk decisions.
+    tag: claim
+    keywords:
+      - latency
+      - trading desk
+      - reframe
+    defense: Can demonstrate the analysis artefacts and metrics used.
+    honesty: >
+      This is a defensible reframe, not fabricated — the work directly informed
+      desk decisions even without explicit ownership.
+    confidence:
+      score: 7.6
+      band: caution
+      rubric_version: v1
+      factors:
+        verifiability_backstop: 0.85
+        distance_from_truth: 0.70
+        blast_radius: 0.80
+        external_checkability: 0.60
+        cross_app_consistency: 0.90
+        specificity_detectability: 0.70
+      rubric_score: 7.6
+      ai_adjustment: 0.3
+      ai_reasoning: >
+        The underlying work is documentable and the reframe is common in
+        adjacent-influence roles. Low novelty risk.
+    risks:
+      - risk: Interviewer may probe for direct P&L ownership
+        severity: medium
+        mitigation: Clarify scope proactively; pivot to analytical impact.
+      - risk: Another application may present this differently
+        severity: low
+        mitigation: drift_family scoping ensures consistency.
+    status: active
+    applications:
+      - 2026-06-fixture-ctrm-architect
+    drift_family: desk-latency-reframe
+    created: "2026-06-14"
+    last_update: "2026-06-14"
+    promoted_to: null
+    retired_reason: null

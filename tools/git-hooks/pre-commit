@@ -1,0 +1,37 @@
+#!/usr/bin/env sh
+# Selfwright pre-commit gate — tool-agnostic coverage.
+#
+# If lefthook is available, defer to it; it runs the full suite
+# (data-leak-gate + named-entity-scan + fast-verify-staged) as defined in lefthook.yml.
+#
+# Otherwise run the data-leak gate AND the named-entity scan directly — the hard-blocks
+# that must never be skipped regardless of tooling (ADR 0017 §2: coverage does not
+# depend on lefthook alone).
+#
+# Installed automatically by `pnpm prepare` via tools/src/hooks/setup-hooks.ts.
+# Lefthook will overwrite this file when `lefthook install` runs; that is
+# intentional — lefthook's shim is what runs our lefthook.yml commands.
+
+set -e
+
+if command -v lefthook >/dev/null 2>&1; then
+  exec lefthook run pre-commit "$@"
+fi
+
+# Fallback: data-leak gate + named-entity scan via pnpm (always available in this monorepo).
+if command -v pnpm >/dev/null 2>&1; then
+  pnpm --filter @selfwright/tools run data-leak-gate
+  pnpm --filter @selfwright/tools run named-entity-scan pre-commit
+  exit $?
+fi
+
+# Last resort: tsx if pnpm is absent (unlikely in a pnpm workspace).
+if command -v tsx >/dev/null 2>&1; then
+  tsx tools/src/data-leak-gate.ts
+  tsx tools/src/hooks/named-entity-scan.ts pre-commit
+  exit $?
+fi
+
+echo "[pre-commit] WARNING: neither lefthook, pnpm, nor tsx found." >&2
+echo "[pre-commit] Data-leak gate / named-entity scan was NOT run — install pnpm or lefthook." >&2
+exit 0

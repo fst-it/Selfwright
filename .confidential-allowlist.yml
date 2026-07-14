@@ -1,0 +1,18 @@
+# .confidential-allowlist.yml — per-(term, path) false-positive allowlist for the
+# named-entity data-leak scan (ADR 0017 §1, tools/src/hooks/named-entity-scan.ts).
+#
+# INVARIANT enforced by the checker: every `term` below must itself be a common
+# dictionary word (see tools/src/hooks/common-words.ts). A unique, non-dictionary
+# name (e.g. a real employer or contact) must NEVER appear here — that would defeat
+# the scanner. If the checker finds a non-dictionary term in this file, it hard-fails
+# the pre-commit/pre-push gate.
+#
+# Allowlisting is per (term, path-glob) — never global. Example (uncomment and adapt
+# only when a real collision occurs; do not add speculative entries):
+#
+#   entries:
+#     - term: orchard
+#       path: "packages/core/src/documents/**"
+#       reason: "generic English word used in a document context, not a confidential name"
+
+entries: []

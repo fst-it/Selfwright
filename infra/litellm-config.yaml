@@ -1,0 +1,41 @@
+model_list:
+  # ── Default tier: Haiku (triage, lightweight tasks) ─────────────────────────
+  - model_name: claude/haiku
+    litellm_params:
+      model: anthropic/claude-haiku-4-5-20251001
+      api_key: os.environ/ANTHROPIC_API_KEY
+
+  # ── Standard tier: Sonnet (score, tailor, judge) ────────────────────────────
+  - model_name: claude/sonnet
+    litellm_params:
+      model: anthropic/claude-sonnet-4-6
+      api_key: os.environ/ANTHROPIC_API_KEY
+
+  # ── Premium tier: Opus (cover-final, architecture, truth-layer) ─────────────
+  - model_name: claude/opus
+    litellm_params:
+      model: anthropic/claude-opus-4-8
+      api_key: os.environ/ANTHROPIC_API_KEY
+
+  # ── Optional: OpenAI (uncomment + set OPENAI_API_KEY) ───────────────────────
+  # - model_name: openai/gpt-4o
+  #   litellm_params:
+  #     model: openai/gpt-4o
+  #     api_key: os.environ/OPENAI_API_KEY
+
+  # ── Optional: Gemini (uncomment + set GEMINI_API_KEY) ───────────────────────
+  # - model_name: gemini/pro
+  #   litellm_params:
+  #     model: gemini/gemini-1.5-pro
+  #     api_key: os.environ/GEMINI_API_KEY
+
+  # ── Optional: Ollama local (uncomment; eval-gated, off by default) ───────────
+  # - model_name: local/llama3
+  #   litellm_params:
+  #     model: ollama/llama3
+  #     api_base: http://host.docker.internal:11434
+
+litellm_settings:
+  telemetry: false
+  drop_params: true
+  set_verbose: false

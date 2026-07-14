@@ -1,0 +1,26 @@
+{
+  "name": "@selfwright/fitness",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --coverage",
+    "fitness": "tsx src/runner.ts"
+  },
+  "dependencies": {
+    "@selfwright/adapter-storage-git": "workspace:*",
+    "@selfwright/api-contract": "workspace:*",
+    "@selfwright/core": "workspace:*",
+    "@selfwright/shared-config": "workspace:*",
+    "@selfwright/tools": "workspace:*",
+    "yaml": "^2.9.0",
+    "zod": "^3.0.0"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^3.0.0",
+    "tsx": "^4.0.0",
+    "vitest": "^3.0.0"
+  }
+}

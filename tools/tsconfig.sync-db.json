@@ -1,0 +1,13 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": "."
+  },
+  "include": ["sync-db.ts"],
+  "references": [
+    { "path": "../packages/core" },
+    { "path": "../packages/adapters/storage-git" },
+    { "path": "../packages/adapters/storage-postgres" }
+  ]
+}

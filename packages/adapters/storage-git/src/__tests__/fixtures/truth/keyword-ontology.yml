@@ -1,0 +1,15 @@
+# Minimal fixture ontology
+data platform:
+  - data lake
+  - data warehouse
+  - lakehouse
+  - data mesh
+
+enterprise architecture:
+  - EA
+  - solution architecture
+  - systems architecture
+
+stream processing: event streaming
+
+tbd: null

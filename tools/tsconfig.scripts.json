@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": "."
+  },
+  "include": ["scripts/**/*.ts", "src/metrics-manifest.ts"],
+  "references": [
+    { "path": "../packages/core" },
+    { "path": "../packages/shared-config" }
+  ]
+}
