@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "include": ["src"],
+  "references": [
+    { "path": "../../packages/core" },
+    { "path": "../../packages/adapters/storage-git" },
+    { "path": "../../packages/shared-logger" },
+    { "path": "../../packages/shared-config" },
+    { "path": "../../packages/api-contract" }
+  ]
+}

@@ -1,0 +1,108 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - main
+      - "feat/**"
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python-lint:
+    name: Python lint · mem0-service
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: Syntax check
+        run: python -m py_compile infra/mem0-service/main.py
+
+      - name: Lint
+        run: pip install ruff && ruff check infra/mem0-service/
+
+  ci:
+    name: Build · Lint · Test · Fitness
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Get pnpm store path
+        id: pnpm-cache
+        run: echo "store=$(pnpm store path --silent)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/cache@v4
+        with:
+          path: ${{ steps.pnpm-cache.outputs.store }}
+          key: pnpm-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: pnpm-${{ runner.os }}-
+
+      - uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: turbo-${{ runner.os }}-${{ github.sha }}
+          restore-keys: turbo-${{ runner.os }}-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Test + coverage
+        run: pnpm test
+
+      - name: Install gitleaks
+        run: |
+          # Kept in sync with the gitleaks binary bundled by gitleaks-action@ff98106
+          # (v2.3.9) in fst-it/Selfwright-data's CI, so both repos scan with the same rules.
+          GITLEAKS_VERSION=8.24.3
+          curl -sSL "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" \
+            | tar -xz -C /usr/local/bin gitleaks
+          gitleaks version
+
+      - name: Fitness functions
+        env:
+          SELFWRIGHT_CONFIDENTIAL_NAMES: ${{ secrets.CONFIDENTIAL_NAMES }}
+        run: pnpm fitness
+
+      # PR title/body come from the PR event, not a checked-out file — untrusted input.
+      # Passed via env (never interpolated into the script) to avoid shell/expression injection.
+      - name: Scan PR title/body for PII
+        if: github.event_name == 'pull_request'
+        env:
+          SELFWRIGHT_CONFIDENTIAL_NAMES: ${{ secrets.CONFIDENTIAL_NAMES }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          printf '%s\n%s\n' "$PR_TITLE" "$PR_BODY" > "$RUNNER_TEMP/pr-text.txt"
+          pnpm --filter @selfwright/tools run check-text-for-pii "$RUNNER_TEMP/pr-text.txt" "PR title/body"

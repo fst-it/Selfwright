@@ -1,0 +1,5 @@
+company: Test
+company_slug: bad-ledger
+drifts:
+  - id: DRIFT-MISSING-REQUIRED-FIELDS
+    tag: claim

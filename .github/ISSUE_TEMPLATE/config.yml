@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: Question or discussion
+    url: https://github.com/fst-it/Selfwright/discussions
+    about: Ask questions, share ideas, or discuss how to use the framework.
+
+  - name: Security vulnerability
+    url: https://github.com/fst-it/Selfwright/security/advisories/new
+    about: Report a security issue privately via a GitHub security advisory.
+
+  - name: Documentation
+    url: https://github.com/fst-it/Selfwright/blob/main/docs/MANUAL.md
+    about: Read the operating manual before filing a bug — it covers setup, commands, and concepts.

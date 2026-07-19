@@ -1,0 +1,12 @@
+---
+description: Selfwright project rules (always applied)
+alwaysApply: true
+---
+
+Read `AGENTS.md` first, then follow it exactly:
+
+- Never commit `data/` or secrets. Truth floor: never fabricate; outward claims trace to the truth layer.
+- TypeScript strict; the domain core is framework-free (hexagonal). TDD for deterministic code; evals for LLM code.
+- One task per branch → PR; never push to `main`. Run `pnpm typecheck && pnpm test && pnpm fitness` before committing.
+- Models: Sonnet 4.6 Max primary; Opus only for the design topics listed in AGENTS.md.
+- Record architectural decisions as ADRs in `docs/adr/`.

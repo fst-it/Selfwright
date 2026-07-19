@@ -1,0 +1,10 @@
+packages:
+  - "packages/*"
+  - "packages/adapters/*"
+  - "apps/*"
+  - "tools"
+  - "fitness"
+  - "evals"
+allowBuilds:
+  esbuild: true
+  lefthook: true

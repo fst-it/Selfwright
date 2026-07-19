@@ -1,0 +1,21 @@
+Selfwright
+Copyright 2026 Felipe Tavares
+
+This product is licensed under the Apache License, Version 2.0.
+See the LICENSE file for the full license text.
+
+---
+
+This product was built on the following prior work:
+
+  career-ops (also known as santifer/career-ops)
+  https://github.com/santifer/career-ops
+  Licensed under the MIT License
+  Copyright (c) santifer contributors
+  Used as the source for the job-board scanner providers
+  (Greenhouse, Lever, Ashby, Workday, SmartRecruiters, BambooHR)
+  and for the Claude Code plugin packaging pattern.
+
+  last30days-skill
+  Originated by mvanhorn; patterns used in the content/Top-Voice engine
+  and hook tooling.

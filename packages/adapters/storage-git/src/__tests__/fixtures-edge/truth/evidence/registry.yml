@@ -1,0 +1,7 @@
+# Valid YAML structure, invalid schema (unknown field triggers strict() rejection)
+- id: EVD-FIXTURE-BAD
+  org: Test
+  claim: Test claim
+  tag: hard
+  keywords: []
+  unknown_field_not_in_schema: oops

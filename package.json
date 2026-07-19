@@ -1,0 +1,34 @@
+{
+  "name": "selfwright",
+  "version": "0.6.0",
+  "private": true,
+  "packageManager": "pnpm@11.6.0",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=9"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "eslint .",
+    "typecheck": "turbo run typecheck",
+    "fitness": "turbo run fitness",
+    "selfwright": "node apps/cli/dist/index.js",
+    "format": "prettier --write .",
+    "eval": "tsx evals/src/index.ts",
+    "sync-db": "tsx tools/sync-db.ts",
+    "gen-metrics-manifest": "tsx tools/scripts/gen-metrics-manifest.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "eslint": "^9.0.0",
+    "@vitest/coverage-v8": "^3.0.0",
+    "dependency-cruiser": "^16.0.0",
+    "lefthook": "^1.0.0",
+    "prettier": "^3.0.0",
+    "turbo": "^2.0.0",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^3.0.0"
+  }
+}

@@ -1,0 +1,19 @@
+# Application pipeline — empty to start.
+# Add entries manually, via the web dashboard's status form, or via `debrief add`.
+# Company names here are private data: never commit real company names into the
+# framework repo (the data-leak gate enforces this in your Selfwright-data repo).
+#
+# Required fields: id (string), company (string), role (string), status (one of:
+#   discovered, queued, applied, interview, offer, rejected, withdrawn, on_hold,
+#   ghosted, archived, not_interested)
+# Optional: applied_date (YYYY-MM-DD), channel, fit_score, notes, source
+#
+# Example:
+# - id: fictionalco-b-eng-2026
+#   company: FictionalCo B
+#   role: Senior Data Engineer
+#   status: applied
+#   applied_date: "2026-01-15"
+#   channel: linkedin
+#   fit_score: 0.72
+[]

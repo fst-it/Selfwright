@@ -1,0 +1,5 @@
+node_modules/
+# Evidence.dev build output and cache
+.evidence/
+build/
+.svelte-kit/

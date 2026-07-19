@@ -1,0 +1,8 @@
+rubric_version: v1
+companies:
+  - slug: fixture-company
+    name: Fixture Company
+    file: companies/fixture-company.yml
+    drift_count: 1
+    active: 1
+    min_confidence: 7.6

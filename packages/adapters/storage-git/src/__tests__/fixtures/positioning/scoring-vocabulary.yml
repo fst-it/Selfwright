@@ -1,0 +1,11 @@
+anchors:
+  - fixture anchor co
+
+industryTiers:
+  - bucket: trading
+    points: 5
+    keywords:
+      - fixture trading co
+
+commodityKeywords:
+  - fixture commodity co

@@ -1,0 +1,54 @@
+# T2.3 scanner target list: companies/providers to scan. Loaded via
+# @selfwright/shared-config's loadScanTargets(). Edit this list to your own
+# tracked companies — the entries below are illustrative examples, not a
+# real target list.
+#
+# provider (19 total):
+#   ATS boards: greenhouse | lever | ashby | workday | smartrecruiters | bamboohr |
+#               oracle | recruitee | personio | workable | breezy | generic
+#   Aggregators: adzuna | arbeitnow | remotive | himalayas | weworkremotely | remoteok
+#   Browser (Playwright, bot-gated): workday-browser
+# careersUrl: the company's public careers page (used for provider auto-detection)
+# api: an explicit API URL, overriding auto-detection (optional; for adzuna,
+#      sets the country base URL e.g. https://api.adzuna.com/v1/api/jobs/us/search)
+# titleFilter / locationFilter / skipTiers: optional narrowing filters
+# For adzuna: titleFilter drives the `what` keyword search; locationFilter[0] is `where`.
+# Requires env vars: SELFWRIGHT_ADZUNA_APP_ID and SELFWRIGHT_ADZUNA_APP_KEY.
+targets:
+  - company: Example Greenhouse Co
+    provider: greenhouse
+    careersUrl: https://job-boards.greenhouse.io/example
+
+  - company: Example Lever Co
+    provider: lever
+    careersUrl: https://jobs.lever.co/example
+
+  # Generic fetcher example: a company on a portal with no dedicated provider
+  # (or where iCIMS-style bot-detection blocks automated fetches — see
+  # docs/adr/0007-deterministic-scanner-job-discovery.md's iCIMS feasibility
+  # note). Some portals return HTTP 403 to automated fetches; this entry
+  # documents the intended config shape — a live scan against such a target
+  # will surface that 403 as an "uncertain" liveness verdict, not a crash.
+  - company: Example Travel Portal
+    provider: generic
+    careersUrl: https://jobs.example-travel.example/jobs/12345
+
+  # ── Aggregator examples (illustrative — move to data repo, not live targets) ──
+
+  # Adzuna aggregator: keyword+location search across Adzuna's jobs index.
+  # Requires SELFWRIGHT_ADZUNA_APP_ID and SELFWRIGHT_ADZUNA_APP_KEY env vars.
+  # api is optional — defaults to GB. Use https://api.adzuna.com/v1/api/jobs/us/search
+  # for the US index, etc. Missing env vars skip this target with a warn (no crash).
+  # - company: Adzuna (global search)
+  #   provider: adzuna
+  #   titleFilter:
+  #     - architect
+  #     - principal engineer
+  #   locationFilter:
+  #     - Amsterdam
+  #   # api: https://api.adzuna.com/v1/api/jobs/nl/search   # Netherlands index
+
+  # Arbeitnow aggregator: free EU/international remote-jobs board, no API key needed.
+  # Fetches the full board (up to 3 pages × 100 results); fit scoring gates relevance.
+  # - company: Arbeitnow Board
+  #   provider: arbeitnow

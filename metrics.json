@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "version": "0.6.0",
+  "fitnessChecks": {
+    "ci": 28,
+    "total": 33
+  },
+  "scanProviders": 19,
+  "tests": 2067,
+  "generatedAt": "2026-07-14",
+  "commit": "ea66fa8"
+}

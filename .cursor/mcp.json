@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "selfwright": {
+      "command": "pnpm",
+      "args": ["mcp"],
+      "env": {
+        "SELFWRIGHT_DATA_DIR": ""
+      }
+    }
+  }
+}

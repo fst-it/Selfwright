@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+title: Selfwright
+message: "If you use this software, please cite it using the metadata below."
+type: software
+authors:
+  - family-names: Tavares
+    given-names: Felipe
+license: Apache-2.0
+repository-code: "https://github.com/fst-it/Selfwright"
+url: "https://github.com/fst-it/Selfwright"
+version: 0.6.0
+date-released: "2026-07-13"
+abstract: >
+  Selfwright is an open-core, local-first personal career and expertise platform.
+  It provides a truth-grounded career engine (CV tailoring, job scoring, ATS analysis,
+  role scanning, interview preparation, and content generation) built on a hexagonal
+  TypeScript monorepo with an executable fitness-function governance suite.
+keywords:
+  - career
+  - job-search
+  - typescript
+  - open-core
+  - local-first
+  - hexagonal-architecture
+  - domain-driven-design

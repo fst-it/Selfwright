@@ -1,0 +1,5 @@
+plugins:
+  datasources:
+    '@evidence-dev/postgres': {}
+  components:
+    '@evidence-dev/core-components': {}

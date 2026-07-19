@@ -1,0 +1,47 @@
+# Domain keyword taxonomy — required by score/gap-scan/inbox --archetype/scan.
+# This file is not optional enrichment: those commands exit with an error if it is missing.
+# Replace or extend the domains and synonyms below with your actual specialisation.
+
+data platform:
+  - data lake
+  - data warehouse
+  - lakehouse
+  - data mesh
+  - data fabric
+
+data engineering:
+  - ETL
+  - ELT
+  - pipeline
+  - orchestration
+  - Airflow
+  - dbt
+  - Spark
+
+stream processing:
+  - Kafka
+  - event streaming
+  - real-time
+  - Flink
+
+cloud infrastructure:
+  - AWS
+  - GCP
+  - Azure
+  - Kubernetes
+  - Terraform
+
+analytics:
+  - BI
+  - dashboards
+  - Metabase
+  - Looker
+  - Power BI
+
+enterprise architecture:
+  - EA
+  - solution architecture
+  - systems architecture
+
+# Placeholder for a domain you plan to add later
+tbd: null

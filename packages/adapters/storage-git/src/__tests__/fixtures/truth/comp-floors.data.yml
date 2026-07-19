@@ -1,0 +1,32 @@
+meta:
+  source: manual research
+  generated: "2026-01-01"
+  amended: "2026-06-01"
+  amsterdam_discretionary_baseline_eur: 160000
+  review_cadence: quarterly
+  location_tiers: "A (premium) / B (target) / C (secondary)"
+  note: Placeholder fixture — values are illustrative only.
+
+cities:
+  - city: Amsterdam
+    country: Netherlands
+    location_tier_points: 100
+    col_index: 1.0
+    floor_a_eur: 160000
+    floor_b_eur: 140000
+    search: true
+    note: Primary target market.
+
+  - city: London
+    country: UK
+    location_tier_points: 95
+    col_index: 1.15
+    floor_a_eur: 175000
+    search: true
+
+  - city: Lisbon
+    country: Portugal
+    location_tier_points: 60
+    col_index: 0.65
+    floor_a_eur: 100000
+    search: false

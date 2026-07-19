@@ -1,0 +1,52 @@
+# Fixture registry — sanitized, no PII. Covers all tag variants.
+
+- id: EVD-FIXTURE-PLATFORM
+  org: Company A
+  claim: Designed and delivered a multi-region data platform serving 200+ internal users.
+  detail: >
+    Replaced a fragile on-prem ETL stack with a cloud-native lakehouse.
+    Led an 8-person team; delivered in 9 months under budget.
+  tag: hard
+  metric: "40% reduction in pipeline failures YoY"
+  keywords:
+    - data platform
+    - lakehouse
+    - ETL
+
+- id: EVD-FIXTURE-LEADERSHIP
+  org: Company A
+  claim: Led platform engineering department through a 2x headcount growth.
+  tag:
+    direct: hard
+    functional: soft
+  keywords:
+    - leadership
+    - headcount
+    - org design
+
+- id: EVD-FIXTURE-DELIVERY
+  org: Company B
+  claim: Delivered cross-cutting stream-processing framework.
+  tag:
+    build: soft
+    metrics: soft
+  keywords:
+    - stream processing
+    - Kafka
+    - frameworks
+
+- id: EVD-FIXTURE-CLAIM
+  org: n/a
+  claim: Advocate for zero-trust data governance principles across all projects.
+  tag: claim
+  honesty: This is a stance/opinion, not a delivered outcome.
+  keywords:
+    - data governance
+    - zero trust
+
+- id: EVD-FIXTURE-NODETAIL
+  org: Company A
+  claim: Managed vendor relationships for infrastructure tools.
+  tag: soft
+  keywords:
+    - vendor management

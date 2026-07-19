@@ -1,0 +1,46 @@
+# Scoring vocabulary — your target industry/company classification.
+# The framework ships a synthetic default (packages/core/src/scoring/vocabulary.ts).
+# When SELFWRIGHT_DATA_DIR is set, FF-VOCAB-1 warns if this file is missing or
+# byte-identical to the default — scoring would silently use placeholder targets.
+# Replace the fictionalco/example names below with real companies from your search.
+#
+# anchors: tier-0 companies to surface immediately regardless of other scoring.
+# industryTiers: ordered classification rules; first keyword match wins.
+# commodityKeywords: commodity/energy trading companies (folded into company_type_fit).
+
+anchors:
+  - fictionalco trading
+  - fictionalco bank
+
+industryTiers:
+  - bucket: trading
+    points: 5
+    keywords:
+      - fictionalco trading
+      - example commodities house
+
+  - bucket: bank_or_asset_mgr
+    points: 4
+    keywords:
+      - fictionalco bank
+      - example asset management
+
+  - bucket: tech_frontier
+    points: 3
+    keywords:
+      - example tech corp
+      - example cloud platform
+
+  - bucket: pharma_manufacturing
+    points: 2
+    keywords:
+      - example pharma inc
+
+  - bucket: it_services_or_other
+    points: 1
+    keywords:
+      - example it services
+
+commodityKeywords:
+  - fictionalco trading
+  - example commodities house

@@ -1,0 +1,41 @@
+# Scan targets — companies/ATS providers to check when you run `selfwright scan`.
+# provider (19 total):
+#   ATS boards: greenhouse | lever | ashby | workday | smartrecruiters | bamboohr |
+#               oracle | recruitee | personio | workable | breezy | generic
+#   Aggregators: adzuna | arbeitnow | remotive | himalayas | weworkremotely | remoteok
+#   Browser (Playwright, bot-gated): workday-browser
+# careersUrl: the company's public ATS or careers page URL
+# api: optional explicit API URL (overrides provider auto-detection; for adzuna,
+#      sets the country base URL e.g. https://api.adzuna.com/v1/api/jobs/us/search)
+# titleFilter / locationFilter: optional list of keywords to narrow results
+# For adzuna: requires SELFWRIGHT_ADZUNA_APP_ID + SELFWRIGHT_ADZUNA_APP_KEY env vars.
+
+targets:
+  - company: Example Greenhouse Corp
+    provider: greenhouse
+    careersUrl: https://job-boards.greenhouse.io/example
+    titleFilter:
+      - architect
+      - principal
+      - staff
+
+  - company: Example Lever Corp
+    provider: lever
+    careersUrl: https://jobs.lever.co/example
+    locationFilter:
+      - Amsterdam
+      - Remote
+
+  # ── Aggregator examples (illustrative) ────────────────────────────────────
+  # Adzuna: keyword+location search. Requires SELFWRIGHT_ADZUNA_APP_ID / APP_KEY.
+  # - company: Adzuna (global search)
+  #   provider: adzuna
+  #   titleFilter:
+  #     - architect
+  #     - principal engineer
+  #   locationFilter:
+  #     - Amsterdam
+
+  # Arbeitnow: free EU/international board, no API key required.
+  # - company: Arbeitnow Board
+  #   provider: arbeitnow

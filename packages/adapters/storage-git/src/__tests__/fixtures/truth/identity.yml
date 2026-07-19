@@ -1,0 +1,66 @@
+name: Alex Rivera
+canonical_title: Sr. Principal Data & Enterprise Architect
+years_experience: 17
+headline: >
+  Technical leader specializing in data platforms, enterprise architecture,
+  and trading-technology transformation.
+seniority_equivalence: Senior Staff / Principal
+headline_policy: Always foreground data platform ownership and cross-domain architecture.
+
+also_known_as_titles:
+  - Data Architect
+  - Enterprise Architect
+  - Solution Architect
+
+cv_generation_rules:
+  - Use impact-first bullet structure (STAR-lite).
+  - Never claim ownership of a live trading-desk without qualification.
+
+education:
+  - degree: MSc Information Systems Management
+    school: University of Lisbon
+    show_year: false
+
+contact:
+  location: Amsterdam, NL
+  phone: "+31 6 00000000"
+  email: contact-omitted-in-fixture
+  linkedin: https://www.linkedin.com/in/test-fixture/
+
+citizenship: Portuguese
+relocation:
+  - Remote
+  - Amsterdam
+
+languages:
+  Portuguese: native
+  English: fluent
+  Dutch: basic
+
+certifications:
+  - AWS Certified Solutions Architect – Associate
+
+team_sizes:
+  company_a:
+    direct: "8-12"
+    functional: "120+"
+    print_direct_on_cv: false
+  company_b:
+    direct: 6
+    note: "Grew dept 2 → 30+"
+
+roles_timeline:
+  - company: Company A
+    title: Principal Data Architect
+    period: 2021–present
+  - company: Company B
+    title: Head of Platform Engineering
+    period: 2018–2021
+
+honesty_boundaries:
+  - Do not claim independent ML model training without a production release.
+  - Do not claim P&L ownership — frame as influence and analysis.
+
+calibration: >
+  Comfortable framing seniority plateau honestly; 17 years of depth but no
+  recent IC title progression in the last 3 years.

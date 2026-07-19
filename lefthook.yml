@@ -1,0 +1,52 @@
+pre-commit:
+  parallel: false
+  commands:
+    data-leak-gate:
+      run: pnpm --filter @selfwright/tools run data-leak-gate
+      fail_text: |
+        ✖ DATA-LEAK GATE BLOCKED YOUR COMMIT.
+        See the output above for details.
+        Never commit data/ or PII into framework files.
+    named-entity-scan:
+      run: pnpm --filter @selfwright/tools run named-entity-scan pre-commit
+      fail_text: |
+        ✖ NAMED-ENTITY SCAN BLOCKED YOUR COMMIT.
+        See the output above for details (file paths only — never the matched name).
+        Either it's a real confidential name/company (move it to Selfwright-data), or a
+        false positive to allowlist per-(term,path) in .confidential-allowlist.yml
+        (ADR 0017). If it failed closed (no data dir found), set SELFWRIGHT_DATA_DIR.
+    fast-verify-staged:
+      glob: "*.{ts,md,yml,json}"
+      run: node tools/dist/hooks/fast-verify-staged.js {staged_files}
+
+commit-msg:
+  commands:
+    check-commit-msg:
+      run: pnpm --filter @selfwright/tools run check-text-for-pii {1} "commit message"
+      fail_text: |
+        ✖ COMMIT MESSAGE BLOCKED — contains a PII/confidential-name pattern.
+        Rewrite the commit message without private or confidential data.
+    conventional-commit-lint:
+      run: pnpm --filter @selfwright/tools run commit-msg-lint {1}
+      fail_text: |
+        ✖ COMMIT MESSAGE REJECTED — does not match conventional-commit format.
+        Use: type(scope)?: description
+        Allowed types: feat|fix|docs|chore|refactor|test|perf|build|ci|style|revert
+        Examples: feat(core): add scoring  /  fix: null deref  /  docs(adr): ADR 0020
+
+pre-push:
+  parallel: false
+  commands:
+    named-entity-scan:
+      run: pnpm --filter @selfwright/tools run named-entity-scan pre-push
+      fail_text: |
+        ✖ NAMED-ENTITY SCAN BLOCKED YOUR PUSH.
+        See the output above for details (file paths only — never the matched name).
+        This is the last local line before anything leaves the machine (ADR 0017).
+    publish-check-advisory:
+      run: pnpm --filter @selfwright/tools run publish-check-advisory
+      fail_text: |
+        ✖ PUBLISH-CHECK ADVISORY found issues (see findings above).
+        Re-push with SELFWRIGHT_PUBLISH_ACK=1 to acknowledge and proceed.
+        Address the findings before merging to main.
+        This hook is opt-in (SELFWRIGHT_PUBLISH_CHECK_HOOK=1). See MANUAL §3.8.

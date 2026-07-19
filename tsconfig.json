@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "files": [],
+  "references": [
+    { "path": "packages/core" },
+    { "path": "packages/shared-config" },
+    { "path": "packages/shared-logger" },
+    { "path": "packages/api-contract" },
+    { "path": "packages/adapters/llm-litellm" },
+    { "path": "packages/adapters/llm-claude-cli" },
+    { "path": "packages/adapters/llm-ollama" },
+    { "path": "packages/adapters/storage-postgres" },
+    { "path": "packages/adapters/memory-mem0" },
+    { "path": "packages/adapters/storage-git" },
+    { "path": "packages/adapters/scan-http" },
+    { "path": "packages/adapters/scan-browser" },
+    { "path": "apps/api" },
+    { "path": "apps/cli" },
+    { "path": "apps/mcp" },
+    { "path": "apps/web" },
+    { "path": "tools" },
+    { "path": "fitness" },
+    { "path": "evals" }
+  ]
+}
